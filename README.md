@@ -21,5 +21,8 @@ Please provide the following parameters in the header of Snakefile:
 - subset is the data subset (only applies to CAMI_medium, CAMI_high, toy_medium and toy_high);
 - train_data is the training dataset;
 - val_data is the dataset that will be clustered (denoted as CAMI1, CAMI2, CAMI3, toy2 or toy3);
-- run_ID is the ID that will be used in all output files.
+- run_ID is the ID that will be used in all output files;
+- the number of threads can be set for each individual rule throughout the snakefile.
 
+# Running
+Run OGRE using the following command: snakemake -j [number of CPUs]
