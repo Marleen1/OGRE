@@ -8,12 +8,12 @@ import numpy as np
 
 samfile = sys.argv[1]
 threads = int(sys.argv[2])
-skip_digits = int(sys.argv[3])
-outfile = sys.argv[4]
-datafolder = sys.argv[5]
-folder = sys.argv[6]
-subset1 = sys.argv[7]
-subset2 = sys.argv[8]
+#skip_digits = int(sys.argv[3])
+outfile = sys.argv[3]
+datafolder = sys.argv[4]
+folder = sys.argv[5]
+subset1 = sys.argv[6]
+subset2 = sys.argv[7]
 
 numbers = ['0','1','2','3','4','5','6','7','8','9']
 '''
@@ -188,8 +188,8 @@ def processFile(fileID):
                 else:
                     extends_ = 0
                 if extends_ == 1:
-                    query_seq = row[0][skip_digits:]
-                    ref_seq = row[2][skip_digits:]
+                    query_seq = row[0]
+                    ref_seq = row[2]
                     ovlplen_, match_, startpos_query, endpos_query = find_ovlplen(cig_split_,start_)
                     startpos_ref = int(row[3])-1
                     endpos_ref = startpos_ref + ovlplen_

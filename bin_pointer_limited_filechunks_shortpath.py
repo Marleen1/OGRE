@@ -13,14 +13,14 @@ from pathlib import Path
 
 #print 'Run this script in Python 2'
 
-threads = int(sys.argv[5])
+threads = int(sys.argv[4])
 #os.remove('Chunkfile')
 starttime = time.time()
 
 ovlpfile = sys.argv[1] #'/linuxhome/tmp/marleen/Minimap/ovlp_predictLogRegr.txt' #'ovlp_sr_s40_w8_k12_m40_n2_g01_g01_combined_sorted_short55.paf' #'testovlp'
-readnamefile = sys.argv[2] #'/linuxhome/tmp/marleen/CAMI/CAMIdataset3/readnames_S001.txt' #'readnames_g01_g01_sorted' #'testreadnames'
-maxsize = sys.argv[3] #33000 #float('inf')
-rID = sys.argv[4]
+readnamefile = 'readnames.txt' #sys.argv[2] #'/linuxhome/tmp/marleen/CAMI/CAMIdataset3/readnames_S001.txt' #'readnames_g01_g01_sorted' #'testreadnames'
+maxsize = sys.argv[2] #33000 #float('inf')
+rID = sys.argv[3]
 run_ID = rID+'_max'+maxsize
 if maxsize == 'inf':
     maxsize = float('inf')
@@ -177,6 +177,7 @@ if __name__ == '__main__':
             if my_file.exists():
                 os.remove('Chunkfile_'+run_ID+'_'+str(ch))
         nextline = (sess-1)*100000
+        print(nextline)
 #        print('About %f lines processed in %f seconds.' % (nextline,time.time()-starttime))
 #        print('Chunkfile contained %f lines, so %f percent.' % (linecount,100*linecount/(100000*threads)))
 #        print('%f out of %f sessions done.' % (sess-1,numsessions))

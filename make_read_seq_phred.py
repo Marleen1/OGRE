@@ -2,8 +2,8 @@ import json
 import sys
 
 fqfile = sys.argv[1]
-skip_digits = int(sys.argv[2])+1
-subset = sys.argv[3]
+#skip_digits = int(sys.argv[2])+1
+subset = sys.argv[2]
 
 read_seq_phred = {}
 read_len = {}
@@ -12,7 +12,7 @@ with open(fqfile,'r') as f:
     i = 0
     for line in f:
         if i % 4 == 0:
-            rd = line.rstrip()[skip_digits:]
+            rd = line.rstrip().replace('@','')
         elif i % 4 ==1:
             seq = line.rstrip()
         elif i % 4 == 3:

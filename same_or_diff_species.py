@@ -7,8 +7,7 @@ import math
 folder = sys.argv[1]
 datafolder = sys.argv[2]
 threads = int(sys.argv[3])
-subset = sys.argv[4]
-infile = sys.argv[5]
+#subset = sys.argv[4]
 #subset = ''
 
 def splitPairTypes(fileID):
@@ -25,19 +24,18 @@ def splitPairTypes(fileID):
 
 
 if __name__ == '__main__':
-#    read_species = json.load(open(datafolder+'read_species_dict.json','r'))
-    read_species = json.load(open(datafolder+'read_species_dict_'+subset+'.json','r'))
-    with open(folder+infile,'r') as f:
+    read_species = json.load(open(datafolder+'read_species_dict.json','r'))
+    with open(folder+'ovlp.txt','r') as f:
         num_lines = sum(1 for line in f)
     num_lines_split = math.ceil(num_lines/threads)
-    os.system('split -l '+str(num_lines_split)+' -a 2 --numeric-suffixes=1 --additional-suffix=.paf '+folder+infile+' tempfile_split')
+    os.system('split -l '+str(num_lines_split)+' --numeric-suffixes=1 --additional-suffix=.paf '+folder+'ovlp.txt tempfile_split')
     po = mp.Pool(threads)
     for th in range(1,threads+1):
         po.apply_async(splitPairTypes, args=(th,))
     po.close()
     po.join()
-    os.system('cat tempfile_samespec* > '+folder+'ovlp_predictLogRegr_samespec.txt')
-    os.system('cat tempfile_diffspec* > '+folder+'ovlp_predictLogRegr_diffspec.txt')
+    os.system('cat tempfile_samespec* > '+folder+'ovlp_samespec.txt')
+    os.system('cat tempfile_diffspec* > '+folder+'ovlp_diffspec.txt')
     os.system('/bin/rm tempfile_split*')
     os.system('/bin/rm tempfile_samespec*')
     os.system('/bin/rm tempfile_diffspec*')
