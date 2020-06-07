@@ -1,4 +1,4 @@
-OGRE is a read clustering tool that clusters short reads from a metagenomic dataset using an overlap graph. Note that OGRE is not fully developed and optimized
+OGRE is a read clustering tool that clusters short reads from a metagenomic dataset using an overlap graph. Note that OGRE is not fully developed and optimized 
 software. However the code is available and usable for read clustering.
 
 ---------------
@@ -31,7 +31,7 @@ of RAM, you can choose a high value here. we chose lines_per_file = 2500000 on a
  Running OGRE
 --------------
 
-OGRE is run by typing
+OGRE is run by typing 
 
 snakemake -j xx
 

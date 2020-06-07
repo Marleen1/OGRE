@@ -3,16 +3,17 @@ import math
 folder = "/linuxhome/tmp/marleen/CAMI/"
 fqfile = "RL_S001__insert_270_qtrimmed_spec340_223_220_126.fq"
 limits = ['inf'] #,'3300','17000','33000']
+numsplitlines = 8000000 
+train_data = 'traindata_CAMI23toy23_80000.txt'
+lines_per_file = 2500000
+
 
 fqfile = fqfile.replace('.fq','')
-
-
-train_data = 'traindata_CAMI23toy23_80000.txt'
 with open(folder+fqfile+".fq","r") as f:
     numlines = sum(1 for line in f)
-numsplitlines = 8000000 
 numsplits = math.ceil(numlines/numsplitlines)
-lines_per_file = 2500000
+
+
 
 files = []
 for g1 in range(1,numsplits+1):
