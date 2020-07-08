@@ -9,6 +9,8 @@ import os
 os.system("taskset -p 0xff %d" % os.getpid())
 
 threads = int(sys.argv[2])
+if threads > 60:
+    threads = 60
 splits = 60
 
 filename = sys.argv[1]
