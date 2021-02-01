@@ -36,3 +36,13 @@ OGRE is run by typing
 snakemake -j xx
 
 in the command line, where xx is the number of threads it can use.
+
+--------------
+ Running Mash
+--------------
+
+Please type 
+
+ sh mash.sh -h
+ 
+to see the parameters needed to run Mash on the data.
