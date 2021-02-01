@@ -56,21 +56,3 @@ for k,v in c2read.items():
 with open(out_file,"w") as fw:
     json.dump(merged_c2read,fw)
 
-len(merged_c2read.keys())
-
-len(merged_c.keys())
-
-'''
-sns.distplot([len(v) for k,v in merged_c2read.items()])
-plt.xlim(0,)
-
-# sorted([len(v) for k,v in merged_c2read.items()])
-
-##
-raw_json=json.load(open("/export/scratch2/vincent/project/meta_assembly/4.CAMI_mine/low_test2/\
-3.OGRE/CAMI_mine_low_max15000_final_clusters_grouped.json",'r'))
-sns.distplot([len(v) for k,v in raw_json.items()])
-plt.xlim(0,)
-
-'''
-

@@ -10,6 +10,7 @@ cluster_json = sys.argv[2]
 sub_file = sys.argv[3]
 if_merge = sys.argv[4]
 prefix=sys.argv[5]
+outdir0=sys.argv[6]
 
 tar_clusters=[]
 with open(sub_file,'r') as fr:
@@ -104,7 +105,7 @@ def get_fq4cluster2(tar_clusters,file,outdir):
 #tar_clusters=sys.argv[1]
 k=420 if if_merge != 'true' else 840
 split_n = int(cluster_len/k)+1
-outdir="./fastq_"+prefix
+outdir=outdir0+"/fastq_"+prefix
 for i in range(split_n):
     #print("the "+str(i+1)+"/"+str(split_n)+" part start...")
     start=k*i
